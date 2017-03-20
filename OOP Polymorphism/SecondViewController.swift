@@ -12,12 +12,13 @@ class SecondViewController: UIViewController
 {
     
     @IBOutlet weak var textField: UITextView!
-    
-    var cellularNetwork : IBCellularNetwork = IBCellularNetwork(providerName: "Phone Co, Inc.", bandwidth: 10, speed: 1)
-    
-    // "Missing argument for parameter 'providerName' in call"
-    // var network : IBInformationNetwork = IBInformationNetwork()
 
+    // declare an instance of a child of the
+    // base class IBInformationNetwork; the
+    // child is specific to this UIViewController
+    var cellularNetwork : IBCellularNetwork =
+        IBCellularNetwork(providerName: "Phone Co, Inc.", bandwidth: 10, speed: 1)
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -29,7 +30,8 @@ class SecondViewController: UIViewController
         super.viewDidAppear(animated)
 
         // NOTICE THAT THE PARENT "KNOWS" ABOUT THE CHILD VIA
-        // LATE BINDING/POLYMORPHISM
+        // LATE BINDING/POLYMORPHISM; WE CAN WRITE A BUNCH OF
+        // NETWORK MODULES/CLASSES USING THE <<<PARENT>>> INSTANCE
         informationNetwork = cellularNetwork
 
         textField.alpha = 0.0

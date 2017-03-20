@@ -13,7 +13,11 @@ class FirstViewController: UIViewController
     
     @IBOutlet weak var textField: UITextView!
     
-    var wifiNetwork : IBWifiNetwork = IBWifiNetwork(providerName: "WiFi, Inc.", bandwidth: 100, speed: 10)
+    // declare an instance of a child of the
+    // base class IBInformationNetwork; the
+    // child is specific to this UIViewController
+    var wifiNetwork : IBWifiNetwork =
+        IBWifiNetwork(providerName: "WiFi, Inc.", bandwidth: 100, speed: 10)
 
     override func viewDidLoad()
     {
@@ -26,7 +30,8 @@ class FirstViewController: UIViewController
         super.viewDidAppear(animated)
         
         // NOTICE THAT THE PARENT "KNOWS" ABOUT THE CHILD VIA
-        // LATE BINDING/POLYMORPHISM
+        // LATE BINDING/POLYMORPHISM; WE CAN WRITE A BUNCH OF 
+        // NETWORK MODULES/CLASSES USING THE <<<PARENT>>> INSTANCE
         informationNetwork = wifiNetwork
 
         textField.alpha = 0.0

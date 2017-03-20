@@ -11,6 +11,8 @@ import UIKit
 class MorePolyMorphViewController: UIViewController
 {
     
+    // this is an "outlet collection" (IBOutletCollection 
+    // in Objective-C) and is connected to 4 controls
     @IBOutlet var multipleOutlets : [UIControl]!
 
     override func viewDidLoad()
@@ -28,22 +30,31 @@ class MorePolyMorphViewController: UIViewController
     
     // MARK: - Outlet collection access
     
+    // this method demonstrates polymorphism, where a variable
+    // of the parent type UIControl is assigned references to
+    // instances of its child/subclass types
     @IBAction func enabledDisableControlsSwitchTapped(_ sender: Any)
     {
         let switchEnabledDisable = sender as! UISwitch
         
         if switchEnabledDisable.isOn
         {
+            // assign different subtypes to the parent type
             for control in multipleOutlets
             {
+                // access property common to the family
+                // of classes
                 control.isEnabled = true
                 print("Control type: \(type(of: control))")
             }
         }
         else
         {
+            // assign different subtypes to the parent type
             for control in multipleOutlets
             {
+                // access property common to the family
+                // of classes
                 control.isEnabled = false
                 print("Control type: \(type(of: control))")
             }
