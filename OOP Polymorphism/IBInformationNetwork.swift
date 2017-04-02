@@ -121,7 +121,7 @@ class IBCellularNetwork: IBInformationNetwork
     override func connect() -> String
     {
         infoString = super.connect() + "\n\n"
-        infoString += "Performing cellular  data link setup..."
+        infoString += "Performing cellular data link setup..."
         return infoString
     }
     

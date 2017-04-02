@@ -30,8 +30,9 @@ class SecondViewController: UIViewController
         super.viewDidAppear(animated)
 
         // NOTICE THAT THE PARENT "KNOWS" ABOUT THE CHILD VIA
-        // LATE BINDING/POLYMORPHISM; WE CAN WRITE A BUNCH OF
-        // NETWORK MODULES/CLASSES USING THE <<<PARENT>>> INSTANCE
+        // LATE BINDING/POLYMORPHISM; WE CAN WRITE EXTENSIBLE AND
+        // MAINTAINABLE CODE BY USING THE <<<PARENT>>> INSTANCE
+        // AS MUCH AS POSSIBLE WHEN WRITING OUR APPLICATION
         informationNetwork = cellularNetwork
 
         textField.alpha = 0.0
