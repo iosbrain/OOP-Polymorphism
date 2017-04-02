@@ -15,7 +15,7 @@ In another example -- an exercise in OOP design and development -- I created a s
 
 The parent class is the blueprint for the child classes. In other words, it defines some general properties and functionality that would be expected of any information network. The child classes, one modelling a Wi-Fi network, and the other modelling a cellular network, each override the behavior of the parent. They provide functionality specific to the network types they are modelling.
 
-I then demonstrated how to declare a variable of the parent type and assign it references to its child classes. This is an example of **late binding** in which the parent's behavior is determined at runtime, not at compile time, and thus demonstrates polymorphism. You can see how I use the parent variable to manipulate child instances by [watching this video](https://youtu.be/CStFGvCQdjs). Here's a peek at the class hierarchy:
+I then demonstrated how to declare a variable of the parent type and assign it references to its child classes. This is an example of **late binding** in which the parent's behavior is determined at runtime, not at compile time, and thus demonstrates polymorphism. To be more precise, I should use the term **"dynamic dispatch"**, as Apple does in its Swift documentation, to describe this behavior where ["the program has to determine at runtime which method or property is being referred to"](https://developer.apple.com/swift/blog/?id=27) when discussing polymophism in Swift (and Objective-C). You can see how I use the parent variable to manipulate child instances by [watching this video](https://youtu.be/CStFGvCQdjs). Here's a peek at the class hierarchy:
 
 ```swift
 // the base class for networking
@@ -39,7 +39,7 @@ class IBCellularNetwork: IBInformationNetwork
 }
 ```
 
-Ands here's a polymorphic variable demonstrating **late binding**:
+Ands here's a polymorphic variable demonstrating **late binding** or **dynamic dispatch**:
 
 ```swift
 var informationNetwork : IBInformationNetwork =
